@@ -1,4 +1,4 @@
-> > Desafio: Sistema de Gerenciamento de Usuários < <
+Desafio: Sistema de Gerenciamento de Usuários
 
 Contexto
 Você foi contratado para desenvolver um sistema de gerenciamento de usuários para uma empresa. Este sistema deve permitir que os administradores realizem operações CRUD (Criar, Pesquisar, Atualizar e Deletar) usuários.
@@ -33,20 +33,3 @@ Entidade Departamento: Implemente uma entidade "Departamento" para separar os us
 
 Requisitos Adicionais e Uso de Outras Tecnologias
 Fique à vontade para adicionar requisitos adicionais ou utilizar outras tecnologias que achar adequadas para a aplicação. Você pode incluir novas funcionalidades, melhorias de desempenho, implementar testes automatizados, ou qualquer outra coisa que considere relevante para o projeto.
-
-Entrega
-
-O código-fonte do projeto deve ser entregue em um repositório Git (por exemplo, GitHub, GitLab, Bitbucket) e enviado para o email codedevelop.contato@gmail.com, envie também nesse email o seu curículo atualizado.
-É uma boa prática fazer commits de forma incremental durante o desenvolvimento, fornecendo uma narrativa clara da evolução do projeto.
-
-
-Critérios de Avaliação
-
-
-Funcionalidade Completa: O sistema deve funcionar conforme os requisitos especificados, permitindo que os usuários realizem todas as operações CRUD de forma eficiente.
-
-Qualidade do Código: O código deve ser limpo, modular e seguir as melhores práticas de desenvolvimento em Java e Angular. Deve ser facilmente compreensível e passível de manutenção.
-
-Testabilidade: O código deve ser testável, com testes unitários e/ou de integração cobrindo as principais funcionalidades do sistema.
-
-Documentação: Forneça uma documentação clara e concisa, descrevendo a arquitetura do sistema, as tecnologias utilizadas e instruções para configurar e executar o projeto localmente.
