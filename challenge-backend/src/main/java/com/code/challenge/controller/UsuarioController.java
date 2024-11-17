@@ -23,39 +23,39 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<UsuarioDto> createUsuario(@RequestBody UsuarioDto usuarioDto) {
         UsuarioDto createdUsuario = usuarioService.save(usuarioDto);
-        return ResponseEntity.ok(createdUsuario); // Retorna 200 OK com o usuário criado
+        return ResponseEntity.ok(createdUsuario);
     }
 
     @GetMapping
     public ResponseEntity<List<UsuarioDto>> getAllUsuarios() {
         List<UsuarioDto> usuarios = usuarioService.findAll();
         if (usuarios.isEmpty()) {
-            return ResponseEntity.noContent().build(); // 204 No Content se a lista estiver vazia
+            return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(usuarios); // 200 OK com a lista de usuários
+        return ResponseEntity.ok(usuarios);
     }
 
     @GetMapping("/{usuarioId}")
     public ResponseEntity<UsuarioDto> getUsuarioById(@PathVariable Long usuarioId) {
         Optional<UsuarioDto> usuario = usuarioService.findById(usuarioId);
         return usuario.map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build()); // 404 Not Found se o usuário não for encontrado
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{usuarioId}")
     public ResponseEntity<UsuarioDto> updateUsuario(@PathVariable Long usuarioId, @RequestBody UsuarioDto usuarioDto) {
         Optional<UsuarioDto> updatedUsuario = usuarioService.update(usuarioId, usuarioDto);
         return updatedUsuario.map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build()); // 404 Not Found se o usuário não for encontrado
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{usuarioId}")
     public ResponseEntity<Void> deleteUsuario(@PathVariable Long usuarioId) {
         boolean deleted = usuarioService.deleteById(usuarioId);
         if (deleted) {
-            return ResponseEntity.noContent().build(); // 204 No Content se o usuário foi excluído
+            return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.notFound().build(); // 404 Not Found se o usuário não for encontrado
+            return ResponseEntity.notFound().build();
         }
     }
 }

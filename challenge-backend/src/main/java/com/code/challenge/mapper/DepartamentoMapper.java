@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 @Component
 public class DepartamentoMapper {
 
-    // Converte um DepartamentoDto em uma entidade Departamento
     public Departamento toEntity(DepartamentoDto dto) {
         if (dto == null) {
             return null;
@@ -23,7 +22,6 @@ public class DepartamentoMapper {
         return departamento;
     }
 
-    // Converte uma entidade Departamento em um DepartamentoDto
     public DepartamentoDto toDto(Departamento entity) {
         if (entity == null) {
             return null;
@@ -32,7 +30,6 @@ public class DepartamentoMapper {
         return new DepartamentoDto(entity.getDepartamentoId(), entity.getNome());
     }
 
-    // Converte uma lista de entidades Departamento em uma lista de DepartamentoDto
     public List<DepartamentoDto> toDtoList(List<Departamento> entities) {
         if (entities == null) {
             return null;
@@ -43,7 +40,6 @@ public class DepartamentoMapper {
                 .collect(Collectors.toList());
     }
 
-    // Converte uma lista de DepartamentoDto em uma lista de entidades Departamento
     public List<Departamento> toEntityList(List<DepartamentoDto> dtos) {
         if (dtos == null) {
             return null;
