@@ -4,6 +4,7 @@ import com.code.challenge.dto.DepartamentoDto;
 import com.code.challenge.dto.UsuarioDto;
 import com.code.challenge.entity.Departamento;
 import com.code.challenge.entity.Usuario;
+import com.code.challenge.exception.ResourceNotFoundException;
 import com.code.challenge.mapper.UsuarioMapper;
 import com.code.challenge.repository.DepartamentoRepository;
 import com.code.challenge.repository.UsuarioRepository;
@@ -86,8 +87,8 @@ class UsuarioServiceTest {
         when(usuarioRepository.findById(1L)).thenReturn(Optional.empty());
 
         // Act & Assert
-        Exception exception = assertThrows(RuntimeException.class, () -> usuarioService.findById(1L).orElseThrow(() -> new RuntimeException("Usuário não encontrado")));
-        assertEquals("Usuário não encontrado", exception.getMessage());
+        ResourceNotFoundException exception = assertThrows(ResourceNotFoundException.class, () -> usuarioService.findById(1L));
+        assertEquals("Usuário não encontrado com ID: 1", exception.getMessage());
         verify(usuarioRepository, times(1)).findById(1L);
     }
 

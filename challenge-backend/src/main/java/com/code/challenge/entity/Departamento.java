@@ -2,24 +2,26 @@ package com.code.challenge.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "departamento")
 public class Departamento {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long departamentoId;
 
+    @Column(nullable = false, unique = true)
     private String nome;
 
-    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Usuario> usuarios;
+    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Usuario> usuarios;
 
     public Departamento() {
     }
 
-    public Departamento(Long departamentoId, String nome, List<Usuario> usuarios) {
+    public Departamento(Long departamentoId, String nome, Set<Usuario> usuarios) {
         this.departamentoId = departamentoId;
         this.nome = nome;
         this.usuarios = usuarios;
@@ -41,11 +43,11 @@ public class Departamento {
         this.nome = nome;
     }
 
-    public List<Usuario> getUsuarios() {
+    public Set<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(List<Usuario> usuarios) {
+    public void setUsuarios(Set<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 }
