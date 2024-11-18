@@ -3,7 +3,6 @@ package com.code.challenge.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tb_usuario")
 public class Usuario {
 
     @Id
